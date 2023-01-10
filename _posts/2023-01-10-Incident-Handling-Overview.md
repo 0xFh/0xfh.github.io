@@ -6,9 +6,9 @@ subtitle: eCIR - Part 1 Summary
 description: >-
   This is a summary of what I learned from p1 in eCIR (IHRP Course)
 image: >-
-  /assets/img/uploads/1.Incident Handling Overview/IHRP_Infographics_OG_Image.png
+  /assets/img/uploads/1.Incident-Handling-Overview/IHRP_Infographics_OG_Image.png
 optimized_image: >-
-  assets/img/uploads/1.Incident Handling Overview/IHRP_Infographics_OG_Image.png
+  /assets/img/uploads/1.Incident-Handling-Overview/IHRP_Infographics_OG_Image.png
 category: blog
 tags:
   - ecir
@@ -62,7 +62,7 @@ The incident handling process consists of four (4) phases (known as “the incid
 3. **Containment, Eradication & Recovery**
 4. **Post-Incident Activity *(Lesson Learned)***
 
-![Incident Handling Process](assets/img/uploads/1.Incident Handling Overview/1.png)
+![Incident Handling Process](assets/img/uploads/1.Incident-Handling-Overview/1.png)
 
 ## 1. Preparation
 
@@ -147,18 +147,18 @@ Data Acquisition software | Read-only diagnostic software | Bootable Linux envir
         - Firewalls, NIDS, IPS, DMZ systems, etc. can assist such detection activities.
         - Wireshark detection example:
             
-            ![2.png](assets/img/uploads/1.Incident Handling Overview/2.png)
+            ![2.png](assets/img/uploads/1.Incident-Handling-Overview/2.png)
             
             looking at the packet capture sequence to make sure that we are dealing with a scanning case:
             
-            ![3.png](assets/img/uploads/1.Incident Handling Overview/3.png)
+            ![3.png](assets/img/uploads/1.Incident-Handling-Overview/3.png)
             
     2. **Host perimeter**
         - Detection occurs whenever we analyze data a host receives from the network or sends out to the network.
         - Local firewalls or HIPS systems can assist such detection activities.
         - Example: When checking network and internet connections using netstat (`netstat -naob`) command in windows we can notice that a suspicious looking executable named winlogin.exe is listening on port 9999:
             
-            ![4.png](assets/img/uploads/1.Incident Handling Overview/4.png)
+            ![4.png](assets/img/uploads/1.Incident-Handling-Overview/4.png)
             
         
         > **Note:** 
@@ -305,7 +305,7 @@ Containment is divided into the following 3 sub phases:
     - Could either be hardware-based or software-based.
     - Tools such as **UltraDock** & **Tableau TD3 Forensic Imager**
     
-    ![Write Blockers](assets/img/uploads/1.Incident Handling Overview/5.png)
+    ![Write Blockers](assets/img/uploads/1.Incident-Handling-Overview/5.png)
     
     **Evidence Integrity:**
     
