@@ -19,17 +19,17 @@ author: Abdullah Aiman
 paginate: true
 ---
 # Table of Contents
-**Incident Handling Defintion & Scope**
-**Security Incidents & Events**
-**Incident Handling Process (IR Life Cycle)**
-  1.Preparation
-  2.Detection & Analysis (Identification)
-  3.Containment, Eradication & Recovery
-  4.Post-Incident Activity (Lesson Learned)
-**Appendix**
-  1.Windows Cheat Sheet
-  2.Linux Cheat Sheet
-**References**
+- **Incident Handling Defintion & Scope**
+- **Security Incidents & Events**
+- **Incident Handling Process (IR Life Cycle)**
+  1. Preparation
+  2. Detection & Analysis (Identification)
+  3. Containment, Eradication & Recovery
+  4. Post-Incident Activity (Lesson Learned)
+- **Appendix**
+  1. Windows Cheat Sheet
+  2. Linux Cheat Sheet
+- **References**
 
 # **Incident Handling Definition & Scope**
 
@@ -220,13 +220,12 @@ Data Acquisition software | Read-only diagnostic software | Bootable Linux envir
     ---
     
     > **Log-reviewing resource examples:**
-    > • [https://docs.microsoft.com/en-us/azure/security/azure-log-audit](https://docs.microsoft.com/en-us/azure/security/azure-log-audit)
-    > • [http://httpd.apache.org/docs/current/logs.html](http://httpd.apache.org/docs/current/logs.html)
+    > - [https://docs.microsoft.com/en-us/azure/security/azure-log-audit](https://docs.microsoft.com/en-us/azure/security/azure-log-audit)
+    > - [http://httpd.apache.org/docs/current/logs.html](http://httpd.apache.org/docs/current/logs.html)
     > 
     
     ---
     
-
 ## 3. **Containment, Eradication & Recovery**
 
 includes everything related to:
@@ -278,6 +277,7 @@ Containment is divided into the following 3 sub phases:
     - The storage mediums can be arranged from the most volatile to the least, as follows:
         - Registers → CPU Cache → Ram → HDD → External & secondary storage devices
     
+    
     **Volatile Data:**
     
     - The data on a live system that is lost after a computer is powered down. It resides in Registries, Cache Memory, and RAM.
@@ -292,7 +292,7 @@ Containment is divided into the following 3 sub phases:
         - By not volatile, we mean data that will not be affected by a system restart.
         - Such acquisition is usually performed on hard disks and flash disks.
     - **Dynamic/Live Acquisition**
-        - is the acquiring process of data that are volatile.
+        - Is the acquiring process of data that are volatile.
         - By volatile we mean data that will be heavily altered or even lost by any user action or system restart.
         - Such acquisition is usually performed while a system is still powered on and without performing any prior actions.
         - As running processes use RAM, it is very likely to find stored passwords, messages, domain names and IP address belonging to those processes.
@@ -309,6 +309,7 @@ Containment is divided into the following 3 sub phases:
         - Mirrors the under investigation hard disk’s content into an image file “**Forensic image”**.
         - The advantage of this method is scalability and efficiency.
     2. **From disk drive to disk drive** (cloning)
+    
     
     **Write Blockers:**
     
@@ -373,7 +374,6 @@ Eradication should take place in order to make sure the attacker is locked out o
         
         ---
         
-
 ### 3. Recovery
 
 Bringing the affected system(s) back to production.
@@ -563,6 +563,7 @@ Identify curious-looking files
 
 # References
 
+- [Incident Handling & Response Professional](https://my.ine.com/CyberSecurity/learning-paths/6acb4d9b-c8f2-4cdb-b01d-fb6110e4f43b/incident-handling-response-professional)
 - [Computer Security Incident Handling Guide by NIST](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
 - [Incident Response Tools & Resources](https://github.com/meirwah/awesome-incident-response#incident-management)
 - [IANA](http://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml)
