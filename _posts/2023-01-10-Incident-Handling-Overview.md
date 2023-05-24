@@ -1,5 +1,5 @@
 ---
-date: 2024-01-10T13:00:00.000Z
+date: 2023-05-24T13:00:01.000Z
 layout: post
 title: 1.Incident Handling Overview
 subtitle: eCIR - Part 1 Summary
