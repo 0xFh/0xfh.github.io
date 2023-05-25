@@ -4,7 +4,7 @@ layout: post
 title: CountZero R1 Competition
 subtitle: CTF challenge [write-up]
 description: >-
-  This is my write-up for Flags Storm challenge that from CountZero Round1 Final Competition
+  This is my write-up for Flags Storm challenge from CountZero Round1 Final Competition
 image: >-
   /assets/img/uploads/countzero-r1-ctf-writeup/storm.png
 optimized_image: >-
