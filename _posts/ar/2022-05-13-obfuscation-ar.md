@@ -24,11 +24,11 @@ paginate: true
 </span>
 </p>
 
-<h3 dir="rtl">
+<h2 dir="rtl">
 <span>
 ايه هو الObfuscation و ازاي بيحصل؟
 </span>
-</h3>
+</h2>
 
 <p dir="rtl">
 <span>
@@ -36,11 +36,11 @@ paginate: true
 </span>
 </p>
 
-<h3 dir="rtl">
+<h2 dir="rtl">
 <span>
 أنواع الObfuscation:
 </span>
-</h3>
+</h2>
 
 <p dir="rtl">
 <span>
