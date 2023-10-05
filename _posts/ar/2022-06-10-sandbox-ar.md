@@ -161,8 +161,6 @@ paginate: true
 
 - [Sandboxie](http://www.sandboxie.com/)
 
--[Buster Sandbox Analyzer](http://bsa.isoftware.nl/)
+- [Buster Sandbox Analyzer](http://bsa.isoftware.nl/)
 
--
-
-- [Mitre att&ck](http://attack.mitre.org/) 
+[**Mitre att&ck**](http://attack.mitre.org/) 
