@@ -51,6 +51,14 @@ paginate: true
 
 <p dir="rtl">
 <span>
+في الصورة هتلاقي مثال للـ imphash قبل و بعد التعديل على ترتيب الـ Functions في الكود، هو نفس الكود لكن ترتيبهم اختلف بالتالي الهاش اختلف:
+</span>
+</p>
+
+![](/assets/img/uploads/i-s-hash/1.png)
+
+<p dir="rtl">
+<span>
 فيه ملاحظة مهمة هنا: الـ Packers ممكن تستخدم نفس الـ IAT للبرمجيات اللي بتعملها Packing بالتالي البرمجيات دي ممكن يكون ليها نفس الـ imphash بسبب استخدام نفس الـ packer بالتالي دا مش معناه انهم تابعين لنفس الـ Adversary ووقتها ممكن نحاول نعمل Unpacking الأول.
 </span>
 </p>
@@ -66,6 +74,14 @@ paginate: true
 عشان تشوف الـ imphash لأي PE File ممكن تستخدم VT علطول، وممكن تستخدم اداة pehash أو تستخدم الـ pefile module الخاص ببايثون، اما بالنسبة للـ section hashs فـ دي هتلاقيها في VT وبرامج تانية كتير زي PeStudio وغيره.
 </span>
 </p>
+
+<p dir="rtl">
+<span>
+في الصورة الجاية هتلاقي مثال من VirusTotal للـ imphash و sechashes:
+</span>
+</p>
+
+![](/assets/img/uploads/i-s-hash/2.png)
 
 <p dir="rtl">
 <span>
