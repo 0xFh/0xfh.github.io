@@ -1,6 +1,6 @@
 ---
 layout: category
-title: Articles
-slug: articles
+title: Article
+slug: article
 description: A category for articles.
 ---
