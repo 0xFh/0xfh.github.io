@@ -46,6 +46,7 @@ collections:
   authors:
     output: true
 paginate_path: "/page/:num/"
+use_logo: true
 
 # Content paginator
 paginate_content:
