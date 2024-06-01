@@ -54,7 +54,18 @@ paginate: true
 <br>
 <code>sc config eventlog start=disabled</code>
 <br>
-وبعدهم أمر <code>Stop-Service -Name EventLog</code> لإيقاف تشغيل الخدمة.<br>
+وبعدهم أمر <code>Stop-Service -Name EventLog</code> لإيقاف تشغيل الخدمة.
+</span>
+</p>
+
+![](/assets/img/uploads/evading-evtlogs/disable-svc1.png)
+
+![](/assets/img/uploads/evading-evtlogs/disable-svc2.png)
+
+![](/assets/img/uploads/evading-evtlogs/disable-svc3.png)
+
+<p dir="rtl">
+<span>
 أو بأداة <b>wevtutil.exe</b> اللي ممكن تقفل أو تحذف سجلات محددة.<br>
 <br>
 2-من خلال تعديل قيمة "Start" في الـ RegKeys دي:<br>
@@ -67,11 +78,27 @@ paginate: true
 - <code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\WMI\Autologger\EventLog-Application</code>
 <br>أو<br>
 - <code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\WMI\Autologger\EventLog-System</code>
-<br>(باستخدام صلاحيات المسؤول)<br>
-<br>
+<br>(باستخدام صلاحيات المسؤول)
+</span>
+</p>
+
+![](/assets/img/uploads/evading-evtlogs/reg-devtlog1.png)
+
+![](/assets/img/uploads/evading-evtlogs/reg-devtlog2.png)
+
+<p dir="rtl">
+<span>
 - أو بإضافة الـkey التالي لمنع توليد الـ Security EventLog 4657 أو Sysmon EventLog 13 اللي بيسجّلو أي تغييرات في الـ Registry:<br>
 <code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\MiniNt</code><br><br>
+</span>
+</p>
 
+  ![](/assets/img/uploads/evading-evtlogs/minint-code1.png)
+  
+  ![](/assets/img/uploads/evading-evtlogs/minint-code2.png)
+  
+<p dir="rtl">
+<span>
 3-بما إن فيه Audit Policy مسؤولة عن السجلات اللي هيتم تجميعها فممكن الـ Malware يوقّف الـ Auditing لأحداث معينة باستخدام أداة <b>auditpol.exe</b> في الويندوز، فمثلاً عشان يوقّف الـ auditing الخاص بالـ Account Logon ممكن يستخدم الأمر التالي:<br>
 <code>auditpol /set /category:"Account Logon" /success:disable /failure:disable</code>
 <br>
@@ -95,12 +122,30 @@ paginate: true
 <p dir="rtl">
 <span>
 هنا الـ Malware بيحذف الـ Event Logs عشان يخفي الأنشطة اللي عملها، ويقدر يعمل كدة بكذا طريقة من ضمنهم:<br>
-1-بصلاحيات مسؤول (Admin) وباستخدام أمر أداة wevtutil؛ فمثلاً ممكن يستخدم أمر <code>wevtutl cl system</code> لحذف سجلات النظام، أو <code>wevtutil cl application</code> لحذف سجلات التطبيقات، و <code>wevtutil cl security</code> لحذف سجلات الأمان.<br>
-<br>
+1-بصلاحيات مسؤول (Admin) وباستخدام أمر أداة wevtutil؛ فمثلاً ممكن يستخدم أمر <code>wevtutl cl system</code> لحذف سجلات النظام، أو <code>wevtutil cl application</code> لحذف سجلات التطبيقات، و <code>wevtutil cl security</code> لحذف سجلات الأمان.
+    </span>
+</p>
+
+![](/assets/img/uploads/evading-evtlogs/clevtlog-wevtutil1.png)
+
+![](/assets/img/uploads/evading-evtlogs/clevtlog-wevtutil2.png)
+
+![](/assets/img/uploads/evading-evtlogs/clevtlog-wevtutil3.png)
+
+<p dir="rtl">
+<span>
 2-من خلال واجهة المُستخدم من أداة Event Viewer.<br>
 <br>
-3-من خلال الـ Powershell باستخدام أمر <code>Remove-EventLog -LogName Security</code> لو هيحذف سجلات الأمان مثلاً.<br>
-<br>
+3-من خلال الـ Powershell باستخدام أمر <code>Remove-EventLog -LogName Security</code> أو <code>Clear-Eventlog -LogName Security</code> لو هيحذف سجلات الأمان مثلاً.
+  </span>
+</p>
+
+![](/assets/img/uploads/evading-evtlogs/clevtlog-ps1.png)
+
+![](/assets/img/uploads/evading-evtlogs/clevtlog-ps2.png)
+
+<p dir="rtl">
+<span>
 4-من خلال حذف ملفات الـ Event Logs بشكل مباشر من مكان تخزينها في النظام <code>C:\Windows\System32\winevt\logs\</code>
 <br>
 <br>
@@ -144,6 +189,8 @@ paginate: true
 6-مراقبة الـ API Calls الخاصة بالنظام واللي لها القدرة على حذف الـ Event Logs.<br>
 </span>
 </p>
+
+Note: Thanks to [Raj Chandel](https://www.hackingarticles.in/defense-evasion-windows-event-logging-t1562-002/) and [Lucas Heiligenstein](https://ptylu.github.io/content/report/report.html?report=25). All screenshots provided here are from their blogs because I currently don't have the time to create my own.
 
 ### Resources - مصادر
 
