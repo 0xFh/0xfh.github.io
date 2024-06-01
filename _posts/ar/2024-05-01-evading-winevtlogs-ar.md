@@ -20,7 +20,8 @@ paginate: true
 ---
 <p dir="rtl" style="font-weight:600">
 <span>
-مش دايماً الـ Logs هتوضحلك كل حاجة لأن الـ Malware تقدر تقفلها، أو تحذفها خالص. ودا هيخليها تعدي من برامج الأنتي فايرس والـ IPS وهتصعّب عمليات الـ Log Analysis والـ Investigation لأن وقتها مش هيكون فيه Logs أصلا. <br> في المقال دا هتكلم عن تقنيتين 2 بتستخدمهم البرمجيات الخبيثة للتهرب من الدفاعات الأمنية وهم Disable Windows Event Logging و Clear Windows Event Logs ✍️
+مش دايماً الـ Logs هتوضحلك كل حاجة لأن الـ Malware تقدر تقفلها، أو تحذفها خالص. ودا هيخليها تعدي من برامج الأنتي فايرس والـ IPS وهتصعّب عمليات الـ Log Analysis والـ Investigation لأن وقتها مش هيكون فيه Logs أصلا. <br> 
+<br>في المقال دا هتكلم عن تقنيتين 2 بتستخدمهم البرمجيات الخبيثة للتهرب من الدفاعات الأمنية وهم Disable Windows Event Logging و Clear Windows Event Logs ✍️
 </span>
 </p>
 
