@@ -1,14 +1,14 @@
 ---
 date: 2024-05-01T13:00:00.000Z
 layout: post
-title: Disable\Clear WinEvtLogs (Ar)
-subtitle: Disable and Clear Windows Event Logs
+title: Evading Windows EvtLogs (Ar)
+subtitle: Disable and Clear Windows Event Logs Techniques
 description: >-
   Defense Evasion using disable\clear windows evtlogs techniques
 image: >-
-  /assets/img/uploads/ar/safemode-ar.png
+  /assets/img/uploads/ar/evading-logs-ar.png
 optimized_image: >-
-  /assets/img/uploads/ar/safemode-ar.png
+  /assets/img/uploads/ar/evading-logs-ar.png
 category: article
 tags:
   - arabic
@@ -20,7 +20,7 @@ paginate: true
 ---
 <p dir="rtl" style="font-weight:600">
 <span>
-مش دايماً الـ Logs هتوضحلك كل حاجة لأن الـ Malware تقدر تقفلها، أو تحذفها خالص. ودا هيخليها تعدي من برامج الأنتي فايرس والـ IPS وهتصعّب عمليات الـ Log Analysis والـ Investigation لأن وقتها مش هيكون فيه Logs أصلا.   في المقال دا هتكلم عن تقنيتين 2 بتستخدمهم البرمجيات الخبيثة للتهرب من الدفاعات الأمنية وهم Disable Windows Event Logging و Clear Windows Event Logs ✍️
+مش دايماً الـ Logs هتوضحلك كل حاجة لأن الـ Malware تقدر تقفلها، أو تحذفها خالص. ودا هيخليها تعدي من برامج الأنتي فايرس والـ IPS وهتصعّب عمليات الـ Log Analysis والـ Investigation لأن وقتها مش هيكون فيه Logs أصلا. <br> في المقال دا هتكلم عن تقنيتين 2 بتستخدمهم البرمجيات الخبيثة للتهرب من الدفاعات الأمنية وهم Disable Windows Event Logging و Clear Windows Event Logs ✍️
 </span>
 </p>
 
@@ -39,7 +39,7 @@ paginate: true
 <p dir="rtl">
 <span>
 خدمة EventLog هي المسؤولة عن حفظ الـ Logs من كل مكونات النظام والتطبيقات اللي عليه، وبتبدأ بشكل تلقائي مع تشغيل النظام (في الـ startup services)، الخدمة دي مش بتجمع السجلات بشكل عشوائي ولكن فيه Audit Policy تابعة للـ Local Security Policy في النظام هي اللي بتحدد لخدمة الـ EventLog أنهي Logs بالظبط اللي هتجمعها، وطبعا إعدادت الـ Security Audit Policy ممكن يتم تغييرها من خلال أداة secpol.msc أو أمر auditpol.
-<br>
+<br><br>
 التقنية دي ممكن تتنفذ بطريقتين: 1-إيقاف خدمة EventLog عن العمل بالتالي ميحصلش Logging لأي حاجة، 2-إيقاف/حذف الـ Audit Policy المسؤولة عن السجلات اللي بتجمعها... وكل دا ممكن يتم بالطرق التالية:
 </span>
 </p>
@@ -71,7 +71,7 @@ paginate: true
 - أو بإضافة الـkey التالي لمنع توليد الـ Security EventLog 4657 أو Sysmon EventLog 13 اللي بيسجّلو أي تغييرات في الـ Registry:<br>
 <code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\MiniNt</code><br><br>
 
-3-بما إن فيه Audit Policy مسؤولة عن السجلات اللي هيتم تجميعها فممكن الـ Malware يوقّف الـ Auditing لأحداث معينة باستخدام أداة <b>auditpol.exe</b> في الويندوز، فمثلاًعشان يوقّف الـ auditing الخاص بالـ Account Logon ممكن يستخدم الأمر التالي:<br>
+3-بما إن فيه Audit Policy مسؤولة عن السجلات اللي هيتم تجميعها فممكن الـ Malware يوقّف الـ Auditing لأحداث معينة باستخدام أداة <b>auditpol.exe</b> في الويندوز، فمثلاً عشان يوقّف الـ auditing الخاص بالـ Account Logon ممكن يستخدم الأمر التالي:<br>
 <code>auditpol /set /category:"Account Logon" /success:disable /failure:disable</code>
 <br>
 <br>
@@ -105,17 +105,16 @@ paginate: true
 <br>
 التقنية دي استخدمها <b>BlackCat Ransomware</b> في حذف الـ Event Logs من خلال أمر:<br>
 <code>“C:\Windows\system32\cmd.exe” /c “cmd.exe /c  for /F \”tokens=*\” %1 in (‘wevtutil.exe el’) DO wevtutil.exe cl \”%1\”</code><br>
-واستخدمها FinFisher من خلال <code>OpenEventLog</code> و <code>ClearEventLog</code> APIs.br>
-واستخدمها كذا APT و Malware قبل كدة عموماً زي gh0st RAT و ZxShell و NotPetya و Olympic Destroyer و Lucifer وغيرهم.
+<br>واستخدمها FinFisher من خلال APIs زي <code>OpenEventLog</code> و <code>ClearEventLog</code>
+<br><br>واستخدمها كذا APT و Malware قبل كدة عموماً زي gh0st RAT و ZxShell و NotPetya و Olympic Destroyer و Lucifer وغيرهم.
 </span>
 </p>
 
 <p dir="rtl" style="font-weight:550">
 <span>
-الـ Mitigations للطريقتين قريبين من بعض ونقدر نلخصهم في الآتي:
+الـ Mitigations للتقنيتين قريبين من بعض ونقدر نلخصهم في الآتي:
 </span>
 </p>
-
 <p dir="rtl">
 <span>
 1-المراجعة الدورية لإعدادات حسابات المسؤولين، والتأكد من أذونات المستخدمين.<br>
@@ -130,7 +129,7 @@ paginate: true
 
 <p dir="rtl" style="font-weight:550">
 <span>
-عشان نعمل Detection للتقنيتين دول ممكن تستخدم الطرق دي:
+عشان نعمل Detection للاتنين ممكن نستخدم الطرق دي:
 </span>
 </p>
 
@@ -145,7 +144,7 @@ paginate: true
 </span>
 </p>
 
-### Resources
+### Resources - مصادر
 
 - [Audit Policy - Microsoft](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/security-policy-settings/audit-policy)
 
