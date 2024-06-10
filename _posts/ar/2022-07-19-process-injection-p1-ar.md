@@ -1,5 +1,5 @@
 ---
-date: 2024-05-01T13:00:00.000Z
+date: 2022-07-19T13:00:00.000Z
 layout: post
 title: Process Injection Techniques [1] - Intro (Ar)
 subtitle: Process Injection Techniques - Part 1
@@ -21,7 +21,7 @@ paginate: true
 <p dir="rtl" style="font-weight:600">
 <span>
 الـ Process injection من ضمن الـ Evasion Techniques اللي بتستخدمها الMalware للتخفي والهروب من عمليات الDetection وتخطي الدفاعات الأمنية، وبتُستخدم كمان في الـ Persistence.
-<br>
+<br><br>
 اللي بيحصل في العملية دي ان الـ Malicious Process بتنفّذ code معين جوا Address space خاص ب Process تانية تكون شرعية وموثوق فيها بالتالي هتحقق الأهداف اللي قلنا عليهم وهم ال Stealth & Persistence.
 <br> 
 <br>
@@ -31,8 +31,8 @@ paginate: true
 
 <p dir="rtl">
 <span>
-الأول خلينا نعرف مصطلحين مهمين هنستخدمهم في الكلام وهم <b>Process</b> و <b>Process Address Space</b> عشان هنحتاجهم في الكلام الجاي...
-
+الأول خلينا نعرف مصطلحين مهمين هنستخدمهم في الكلام وهم <b>Process</b> و <b>Process Address Space</b> عشان هنحتاجهم في الكلام الجاي:
+  <br><br>
 الـ Process معظمنا سمع عنها أو شافها في الويندوز، هي عبارة عن resource mechanism بتمثّل instance أو نسخة من برنامج شغال بالفعل (معموله Load في الميموري)..<br>
 -كل process بيبقى ليها بيئة منعزلة خاصة بيها بتستخدمها في ادارة الـ resources او الموارد اللي بيحتاجها البرنامج.<br>
 -كل process ليها على الأقل Thread واحد وده غالبا بيكون مسؤول عن تنفيذ الكود بدايةً من الـ entry point الخاصة بالـ executable file.<br>
@@ -60,7 +60,7 @@ paginate: true
 <br>
 <b>1-Classic DLL Injection:</b><br>
 من التقنيات الشائعة والسهلة في الاستخدام، اللي بيحصل فيها ان الـ Malicious Process بتحقن الـ Path الخاص بالـ Malicious DLL بتاعت المالوير جوا Address Space خاص بـ legitimate process موثوق فيها زي svchost.exe مثلاً.. بعدين بتستدعي الـ DLL دي باستخدام remote thread عشان تتنفذ.
-<br>
+<br><br>
 من عيوب الطريقة دي ان الـ Malicious DLL لازم تتحفظ او تبقى موجودة على الDisk، وكمان بتبقى ظاهرة في الـ Import Table (اتكلمنا عنه سابقاً في منشور الـ PE Format).
 <br>
 <br>
@@ -69,17 +69,16 @@ paginate: true
 <br>
 <br>
 <b>3-Thread Execution Hijacking:</b><br>
-الطريقة دي بتتم من خلال 3 مراحل اساسية بيطلق عليهم مصطلح SIR ودا اختصار Suspend, Inject, Resume<br>
-اللي بيحصل هنا ان الـ Malware بيستهدف legitimate thread يكون موجود وشغال بالفعل وبيعمله suspend الاول، بعدها بيعمل inject لـ malicious code جواه، وبعدين يعمل resume للـ thread عشان ينفذ الـ code..<br>
-الكود دا ممكن يحتوي على shellcode او path خاص بmalicious dll او address خاص بـLoadLibrary.
-<br>
+الطريقة دي بتتم من خلال 3 مراحل اساسية بيطلق عليهم مصطلح SIR ودا اختصار Suspend, Inject, Resume:<br><br>
+اللي بيحصل هنا ان الـ Malware بيستهدف legitimate thread يكون موجود وشغال بالفعل وبيعمله suspend الاول، بعدها بيعمل inject لـ malicious code جواه، وبعدين يعمل resume للـ thread عشان ينفذ الـ code.. الكود دا ممكن يحتوي على shellcode او path خاص بmalicious dll او address خاص بـLoadLibrary.
+<br><br>
 <b>ملاحظات:</b><br>
 - لاحظ انه بيستخدم الEIP register عشان يتحكم في الـ execution زي انه يعمل resume او pause مثلاً.<br>
 - لما يحصل suspend أو resume للـthread أحيانا بيسبب مشكلة للـ system ويخليه ي crash؛ عشان كدة بعض الـ malware المعقّدة مش بتعمل suspend علطول وممكن تكمل شغلها لحد ما تتأكد انه مش هيسبب مشكلة.
 <br><br>
 <b>4-PE Injection:</b><br>
 الطريقة دي بتتميز ب ان الـmalware مش محتاج يحط malicious dll على الـdisk ودا بيشبه الReflective DLL Injection في النقطة دي، لكن الـ PE injection بيعتمد على حقن الـ malicious code في process موجودة ع السيستم وشغالة، بعدين بينفذ الكود عن طريق shellcode أو remote thread.
-<br>
+<br><br>
 من المشاكل الموجودة في الطريقة دي ان لما بيحصل inject لل PE في Process تانية بيبقى ليها base address جديد مش معروف وبيحتاج لحساب عناوين الـ PE مرة تانية، وهنا الـ malware بيحتاج يبحث عن الـ relocation table address عشان يحسب عناوين الـ image من جديد.
 <br><br>
 <b>5-Process Hollowing:</b><br>
@@ -91,7 +90,7 @@ paginate: true
 <br><br>
 <b>7-IAT Hooking:</b><br>
 في التقنية دي الmalware بيعتمد على تعديل الImport Address Table بحيث لما legitimate application موثوق منه يستدعي API من DLL معينة يقوم منفذ الReplaced Function بدلاً من الOriginal Function.
-<br>
+<br><br>
 ملاحظة: فيه نوع تاني اسمه Inline Hooking بيعتمد على تعديل الAPI Function نفسها بدلاً من تعديل الIAT.
 <br><br>
 <b>8-Injection via Registry:</b><br>
