@@ -10,7 +10,7 @@ menu: true
 
 Welcome to my technical blog, not my personal one.
 
-I do not like politicians or politics, but they say, “When an oppressed person turns into an issue, he must be supported.”…
+I do not like politicians or politics, but they say, “When an oppressed person turns into a cause, he must be supported.”…
 
 There is a 55,000-year-old tree located in a blessed land called “Palestine.” This tree is the "olive tree".
 
