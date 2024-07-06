@@ -6,7 +6,7 @@ permalink: /about/
 menu: true
 ---
 
-<img class="img-rounded" src="/assets/img/uploads/profile.gif" alt="PS" width="200">
+<img class="img-rounded" src="/assets/img/uploads/profile.gif" alt="PS" width="400">
 
 Welcome to my technical blog, not my personal one.
 
