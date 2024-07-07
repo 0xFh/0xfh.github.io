@@ -1,7 +1,7 @@
 # Site Settings
-name: 0xFh (שחררו את פלסטין)
+name: 0xFh
 title: 0xFh | שחררו את פלסטין
-description: No description but (שחררו את פלסטין).
+description: שחררו את פלסטין
 tags:
   - blog
   - template
@@ -85,3 +85,6 @@ exclude: [
   'gulpfile.js',
   'README.md'
 ]
+
+# Theme
+version: שחררו את פלסטין
