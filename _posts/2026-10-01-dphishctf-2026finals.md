@@ -6,9 +6,9 @@ subtitle: CTF challenge [write-up]
 description: >-
   This is my write-up for the final phase of the dPhish CTF
 image: >-
-  /assets/img/uploads/dphish_ctf/final_phase/1.png
+  /assets/img/uploads/dphish_ctf/final_phase/0.png
 optimized_image: >-
-  /assets/img/uploads/dphish_ctf/final_phase/1.png
+  /assets/img/uploads/dphish_ctf/final_phase/0.png
 category: writeup
 tags:
   - writeup
