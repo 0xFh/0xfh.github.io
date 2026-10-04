@@ -19,6 +19,9 @@ tags:
 author: Abdullah Aiman
 paginate: true
 ---
+The final phase of the dPhish CTF focuses on investigating a realistic phishing campaign through a compromised internal account. The challenge environment contains 1,002 emails, with clues distributed across email metadata, attachments, URLs, IOCs, detection results, and response actions.
+
+This write-up walks through the investigation step by step, showing how to use dPhish Discover to pivot between these artifacts, uncover the attack chain, and solve all 20 questions.
 
 Before diving into the challenges, here is a quick overview of **Discover**, the platform used throughout this CTF.
 
